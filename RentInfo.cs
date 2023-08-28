@@ -2,19 +2,15 @@
 {
     public class RentInfo
     {
-
-        protected string _user;
+        protected string _borrower;
         protected DateTime _date;
-        public string InventoryId {
-            get
-            { return InventoryId; }
+        protected string _inventroyId;
 
-
-        public RentInfo(Borrower user, DateTime date, string inventoryId)
+        public RentInfo(string borrower, DateTime date, string inventoryId)
         {
-            _user = user.Name;
+            _borrower = borrower;
             _date = date;
-            _inventoryId = inventoryId;
+            _inventroyId = inventoryId;
         }
     }
 }

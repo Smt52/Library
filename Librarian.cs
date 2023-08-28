@@ -1,6 +1,12 @@
-﻿namespace Library
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Library
 {
-    public class Borrower : User
+    public class Librarian : User
     {
         public override bool LogIn()
         {
@@ -21,6 +27,11 @@
             }
 
             return true;
+        }
+
+        public void NotifyBookCount(BookWrapper bookWrapper)
+        {
+            Console.WriteLine("Less than two copies of this book remain in the library.");
         }
     }
 }

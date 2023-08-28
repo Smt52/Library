@@ -7,7 +7,5 @@
         protected string _password;
 
         public abstract bool LogIn();
-        
-
     }
 }

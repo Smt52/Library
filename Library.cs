@@ -2,9 +2,6 @@
 {
     public class Library
     {
-
-       
-
         protected Dictionary<string, BookWrapper> _bookWrapper = new Dictionary<string, BookWrapper>();
 
         public string Rent(string key)
@@ -14,7 +11,7 @@
                 return "There is no such book.";
             }
 
-            return "Books is lented out succesfully.";
+            return "Books is lented out successfully.";
         }
 
         private BookWrapper GetBook(string key)
@@ -34,14 +31,15 @@
             }
             return true;
         }
+
         public string Return(IReturn @return)
         {
             if (!@return.Return())
             {
                 return "Book cannot retrieved.";
             }
-            
-            return "Book is retrieved succesfully.";
+
+            return "Book is retrieved successfully.";
         }
     }
 }

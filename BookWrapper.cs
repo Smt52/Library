@@ -1,18 +1,19 @@
 ﻿namespace Library
 {
-   
-    public class BookWrapper:IBorrow,IReturn
+    public class BookWrapper : IBorrow, IReturn
     {
-        protected List<RentInfo> rents;
+        protected List<Librarian> _librarians;
+        protected List<RentInfo> _rents;
         protected Book book;
         protected string _isbn;
         private readonly int Count;
         protected int _countOfAvailable;
         private string _location;
 
-        public BookWrapper(List<RentInfo> rents, Book book, string isbn, int count, int countOfAvailable, string location)
+        public BookWrapper(Book book, string isbn, int count, int countOfAvailable, string location)
         {
-            this.rents = rents;
+            _librarians = new List<Librarian>();
+            _rents = new List<RentInfo>();
             this.book = book;
             _isbn = isbn;
             _countOfAvailable = count;
@@ -29,12 +30,11 @@
             }
 
             return _location;
-
         }
 
         public bool Availability()
         {
-            if(_countOfAvailable == 0)
+            if (_countOfAvailable == 0)
             {
                 return false;
             }
@@ -45,7 +45,8 @@
 
             return true;
         }
-         public int ReturnedBook(IReturn @return)
+
+        public int ReturnedBook(IReturn @return)
         {
             if (@return.Return())
             {
@@ -54,10 +55,31 @@
             }
             return 0;
         }
+
         public bool Return()
         {
             return true;
         }
 
+        public void AddLibrarian(Librarian librarian)
+        {
+            _librarians.Add(librarian);
+        }
+
+        public void RemoveLibrarian(Librarian librarian)
+        {
+            _librarians.Remove(librarian);
+        }
+
+        public void FewerBook()
+        {
+            if (_countOfAvailable < 2)
+            {
+                foreach (var librarian in _librarians)
+                {
+                    librarian.NotifyBookCount(this);
+                }
+            }
+        }
     }
 }
