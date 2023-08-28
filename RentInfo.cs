@@ -5,7 +5,9 @@
 
         protected string _user;
         protected DateTime _date;
-        protected string _inventoryId;
+        public string InventoryId {
+            get
+            { return InventoryId; }
 
 
         public RentInfo(Borrower user, DateTime date, string inventoryId)
