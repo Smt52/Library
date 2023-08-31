@@ -2,6 +2,10 @@
 {
     public class Borrower : User
     {
+        public Borrower(string name, string email, string password) : base(name, email, password)
+        {
+        }
+
         public override bool LogIn()
         {
             Console.Write("Please enter your email:");

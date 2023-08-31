@@ -10,7 +10,22 @@
         {
             _author = author;
             _title = title;
-            _genre = genre;
+            _genre = new List<Genre>();
+        }
+
+        public void AddGenre(Genre genre)
+        {
+            _genre.Add(genre);
+        }
+
+        public void RemoveGenre(Genre genre)
+        {
+            _genre.Remove(genre);
+        }
+
+        public string GetBookTitle()
+        {
+            return _title;
         }
     }
 }

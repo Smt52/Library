@@ -8,6 +8,10 @@ namespace Library
 {
     public class Librarian : User
     {
+        public Librarian(string name, string email, string password) : base(name, email, password)
+        {
+        }
+
         public override bool LogIn()
         {
             Console.Write("Please enter your email:");

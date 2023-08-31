@@ -4,6 +4,11 @@
     {
         protected Dictionary<string, BookWrapper> _bookWrapper = new Dictionary<string, BookWrapper>();
 
+        public Library(Dictionary<string, BookWrapper> bookWrapper)
+        {
+            _bookWrapper = new Dictionary<string, BookWrapper>();
+        }
+
         public string Rent(string key)
         {
             if (!Borrow(GetBook(key)))
@@ -40,6 +45,16 @@
             }
 
             return "Book is retrieved successfully.";
+        }
+
+        public void AddBook(BookWrapper bookWrapper)
+        {
+            _bookWrapper.Add(bookWrapper.GetBookName(), bookWrapper);
+        }
+
+        public void RemoveBook(BookWrapper bookWrapper)
+        {
+            _bookWrapper.Remove(bookWrapper.GetBookName());
         }
     }
 }

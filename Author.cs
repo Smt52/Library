@@ -10,7 +10,13 @@
         {
             _name = name;
             _surname = surname;
-            _books = books;
+            _books = new List<Book>();
         }
+
+        public void AddBook(Book book)
+        { _books.Add(book); }
+
+        public void RemoveBook(Book book)
+        { _books.Remove(book); }
     }
 }

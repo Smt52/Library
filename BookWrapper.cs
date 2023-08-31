@@ -46,7 +46,7 @@
             return true;
         }
 
-        public int ReturnedBook(IReturn @return)
+        public int ReturnBook(IReturn @return)
         {
             if (@return.Return())
             {
@@ -80,6 +80,11 @@
                     librarian.NotifyBookCount(this);
                 }
             }
+        }
+
+        public string GetBookName()
+        {
+            return book.GetBookTitle();
         }
     }
 }
